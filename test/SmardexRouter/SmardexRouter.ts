@@ -4,6 +4,7 @@ import {
   unitFixtureCallbackTest,
   unitFixtureSmardexPairTest,
   unitFixtureSmardexRouter,
+  unitFixtureSmardexPairTestV1,
   unitFixtureSmardexRouterTest,
   unitFixtureSmardexRouterWhitelist,
 } from "../fixtures";
@@ -31,6 +32,7 @@ import { shouldBehaveLikeCheckFailedTest } from "./specs/testnetCheckFailedTest"
 import { shouldRefundUnusedETH } from "./specs/refundEth.spec";
 import { shouldBehaveLikeSmardexRouterGetAmountFromPair } from "./specs/getAmountFromPair.spec";
 import { shouldBehaveLikeWhitelist } from "./specs/whitelist.spec";
+import { shouldBehaveLikeSmardexRouterGetAmountFromPairV1 } from "./specs/getAmountFromPairV1.spec";
 
 export function unitTestsSmardexRouter(): void {
   describe("SmarDexRouter", function () {
@@ -91,6 +93,24 @@ export function unitTestsSmardexRouter(): void {
 
       describe("Smardex Router getAmountFromPair", function () {
         shouldBehaveLikeSmardexRouterGetAmountFromPair();
+      });
+    });
+
+    describe("getAmountFromPairV1 Test", function () {
+      beforeEach(async function () {
+        const { token0, token1, smardexPairTest, factory, smardexRouterTest } = await loadFixture(
+          unitFixtureSmardexPairTestV1,
+        );
+
+        this.contracts.token0 = token0;
+        this.contracts.token1 = token1;
+        this.contracts.smardexFactoryV1 = factory;
+        this.contracts.smardexPairTest = smardexPairTest;
+        this.contracts.smardexRouterTest = smardexRouterTest;
+      });
+
+      describe("Smardex Router getAmountFromPair", function () {
+        shouldBehaveLikeSmardexRouterGetAmountFromPairV1();
       });
     });
 

@@ -101,12 +101,12 @@ const config: HardhatUserConfig = {
       },
       allowUnlimitedContractSize: true,
       chainId: 1337,
-      forking: process.env.FORKING_URL
-        ? {
-            url: process.env.FORKING_URL,
-            blockNumber: process.env.FORKING_BLOCK_NUMBER ? Number(process.env.FORKING_BLOCK_NUMBER) : undefined,
-          }
-        : undefined,
+      // forking: process.env.FORKING_URL
+      //   ? {
+      //       url: process.env.FORKING_URL,
+      //       blockNumber: process.env.FORKING_BLOCK_NUMBER ? Number(process.env.FORKING_BLOCK_NUMBER) : undefined,
+      //     }
+      //   : undefined,
 
       mining: {
         mempool: {

@@ -670,7 +670,14 @@ contract SmardexRouterV2 is ISmardexRouter {
         );
 
         // get pair fees
-        (_param.feesLP, _param.feesPool) = _pair.getPairFees();
+        try _pair.getPairFees() returns (uint128 feesLP, uint128 feesPool) {
+            _param.feesLP = feesLP;
+            _param.feesPool = feesPool;
+        } catch {
+            // If the pair does not have fees, set them to 0
+            _param.feesLP = 0;
+            _param.feesPool = 0;
+        }
 
         (amountOut_, newReserveIn_, newReserveOut_, newFictiveReserveIn_, newFictiveReserveOut_) = SmardexLibrary
             .getAmountOut(_param);
@@ -721,9 +728,22 @@ contract SmardexRouterV2 is ISmardexRouter {
         );
 
         // get pair fees
-        (_param.feesLP, _param.feesPool) = _pair.getPairFees();
-
-        (amountIn_, newReserveIn_, newReserveOut_, newFictiveReserveIn_, newFictiveReserveOut_) = SmardexLibrary
-            .getAmountIn(_param);
+        try _pair.getPairFees() returns (uint128 feesLP, uint128 feesPool) {
+            _param.feesLP = feesLP;
+            _param.feesPool = feesPool;
+            (amountIn_, newReserveIn_, newReserveOut_, newFictiveReserveIn_, newFictiveReserveOut_) = SmardexLibrary
+                .getAmountIn(_param);
+        } catch {
+            (amountIn_, newReserveIn_, newReserveOut_, newFictiveReserveIn_, newFictiveReserveOut_) = SmardexLibraryV1
+                .getAmountIn(
+                    _param.amount,
+                    _param.reserveIn,
+                    _param.reserveOut,
+                    _param.fictiveReserveIn,
+                    _param.fictiveReserveOut,
+                    _param.priceAverageIn,
+                    _param.priceAverageOut
+                );
+        }
     }
 }
