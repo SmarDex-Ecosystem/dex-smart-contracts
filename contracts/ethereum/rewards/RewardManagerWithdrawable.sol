@@ -5,7 +5,7 @@ pragma solidity 0.8.17;
 import "./RewardManagerL2.sol";
 
 // interfaces
-import "../interfaces/IRewardManagerWithdrawable.sol";
+import "./interfaces/IRewardManagerWithdrawable.sol";
 
 /**
  * @title RewardManagerWithdrawable

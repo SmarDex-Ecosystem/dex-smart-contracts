@@ -3,10 +3,10 @@ pragma solidity =0.8.17;
 
 // libraries
 import "./PoolAddress.sol";
-import "../../core/libraries/SmardexLibrary.sol";
+import "../../core/v2/libraries/SmardexLibrary.sol";
 
 // interfaces
-import "../../core/interfaces/ISmardexPair.sol";
+import "../../core/v2/interfaces/ISmardexPair.sol";
 
 library PoolHelpers {
     /**

@@ -5,7 +5,7 @@ pragma solidity 0.8.17;
 import "./FarmingRange.sol";
 
 // libraries
-import "../core/libraries/TransferHelper.sol";
+import "../core/v2/libraries/TransferHelper.sol";
 
 // interfaces
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";

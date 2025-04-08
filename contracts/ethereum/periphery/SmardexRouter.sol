@@ -3,13 +3,13 @@ pragma solidity =0.8.17;
 
 // libraries
 import "@openzeppelin/contracts/utils/math/SafeCast.sol";
-import "../core/libraries/TransferHelper.sol";
+import "../core/v2/libraries/TransferHelper.sol";
 import "./libraries/PoolAddress.sol";
 import "./libraries/Path.sol";
 
 // interfaces
-import "../core/interfaces/ISmardexFactory.sol";
-import "../core/interfaces/ISmardexPair.sol";
+import "../core/v2/interfaces/ISmardexFactory.sol";
+import "../core/v2/interfaces/ISmardexPair.sol";
 import "./interfaces/ISmardexRouter.sol";
 import "./interfaces/IWETH.sol";
 

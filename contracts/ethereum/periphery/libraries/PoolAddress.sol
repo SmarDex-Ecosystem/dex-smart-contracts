@@ -5,7 +5,7 @@ pragma solidity =0.8.17;
 import "./PoolHelpers.sol";
 
 // interfaces
-import "../../core/interfaces/ISmardexFactory.sol";
+import "../../core/v2/interfaces/ISmardexFactory.sol";
 
 library PoolAddress {
     /**

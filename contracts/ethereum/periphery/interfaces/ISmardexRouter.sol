@@ -2,9 +2,9 @@
 pragma solidity >=0.8.17;
 
 // interfaces
-import "../../core/interfaces/ISmardexSwapCallback.sol";
-import "../../core/interfaces/ISmardexMintCallback.sol";
-import "../../core/libraries/SmardexLibrary.sol";
+import "../../core/v2/interfaces/ISmardexSwapCallback.sol";
+import "../../core/v2/interfaces/ISmardexMintCallback.sol";
+import "../../core/v2/libraries/SmardexLibrary.sol";
 
 interface ISmardexRouter is ISmardexSwapCallback, ISmardexMintCallback {
     /**
