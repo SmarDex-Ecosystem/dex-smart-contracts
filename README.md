@@ -30,40 +30,6 @@ Install dependencies:
 
 `yarn compile`
 
-To rebuild typechain specifically:
-
-`yarn typechain`
-
-### Run tests
-
-```bash
-yarn test                           # run tests without traces
-
-yarn test --traceError              # prints calls for failed txs
-yarn test --fulltraceError          # prints calls and storage ops for failed txs
-yarn test --trace                   # prints calls for all txs
-yarn test --fulltrace               # prints calls and storage ops for all txs
-
-yarn test --v                       # same as --traceError
-yarn test --vv                      # same as --fulltraceError
-yarn test --vvv                     # same as --trace
-yarn test --vvvv                    # same as --fulltrace
-
-# specify opcode
-yarn test --v --opcodes ADD,SUB     # shows any opcode specified for only failed txs
-yarn test --vvv --opcodes ADD,SUB   # shows any opcode specified for all txs
-```
-
-### Deploy
-
-#### Testnet (mumbai)
-
-`yarn deploy_testnet`
-
-#### Hardhat (test deploy script)
-
-`yarn deploy`
-
 ### Prettier
 
 Run linter (required before each commit):
@@ -73,28 +39,6 @@ Run linter (required before each commit):
 Check code is properly linted:
 
 `yarn prettier:check`
-
-### Slither
-
-For quick and automatic syntaxic analysis, you can use Slither tool :
-Slither is a Solidity static analysis framework. It runs a suite of vulnerability detectors, prints visual information about contract details. [...] Slither enables developers to find vulnerabilities, enhance their code comprehension, and quickly prototype custom analyses.
-
-#### Install
-
-See for options :
-https://github.com/crytic/slither#how-to-install
-
-#### Run
-
-At project level (where package.json is):
-
-```sh
-slither . --json slither_output.json
-#slither is called system wide, but an absolute or relative binary call can also be used
-```
-
-Better run with yarn to avoid errors & with config to choose printers_to_run :
-`yarn slither`
 
 ## Contributors
 
