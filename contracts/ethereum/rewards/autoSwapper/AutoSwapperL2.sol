@@ -5,13 +5,13 @@ pragma solidity 0.8.17;
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/utils/math/SafeCast.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "../core/v2/libraries/SmardexLibrary.sol";
-import "../periphery/libraries/Path.sol";
+import "../../core/v2/libraries/SmardexLibrary.sol";
+import "../../periphery/libraries/Path.sol";
 
 // interfaces
-import "../periphery/interfaces/ISmardexRouter.sol";
-import "../core/v2/interfaces/ISmardexPair.sol";
-import "./interfaces/IAutoSwapper.sol";
+import "../../periphery/interfaces/ISmardexRouterV2.sol";
+import "../../core/v2/interfaces/ISmardexPair.sol";
+import "./interfaces/IAutoSwapperL2.sol";
 
 /**
  * @title AutoSwapper

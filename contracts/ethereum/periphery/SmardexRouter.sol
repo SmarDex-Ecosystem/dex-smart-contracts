@@ -10,7 +10,7 @@ import "./libraries/Path.sol";
 // interfaces
 import "../core/v2/interfaces/ISmardexFactory.sol";
 import "../core/v2/interfaces/ISmardexPair.sol";
-import "./interfaces/ISmardexRouter.sol";
+import "./interfaces/ISmardexRouterV2.sol";
 import "./interfaces/IWETH.sol";
 
 /**
