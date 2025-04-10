@@ -4,13 +4,7 @@ import "@nomicfoundation/hardhat-toolbox";
 
 import { resolve } from "path";
 import { config as dotenvConfig } from "dotenv";
-import { HardhatUserConfig, task } from "hardhat/config";
-
-// Tasks
-import { changePairHash } from "./script/changePairHash";
-import { changePairHashForV1pair } from "./script/changePairHashForV1pair";
-import { generateSwapGasCost } from "./script/generateSwapGasCost";
-import { switchPairHashFunctionCoverage } from "./script/switchPairHashFunctionCoverage";
+import { HardhatUserConfig } from "hardhat/config";
 
 dotenvConfig({ path: resolve(__dirname, "./.env") });
 const mnemonic: string | undefined = process.env.MNEMONIC;
@@ -19,16 +13,6 @@ const privateKey: string | undefined = process.env.PRIVATE_KEY;
 if (mnemonic === undefined && !privateKey) {
   throw '\nerror, mnemonic or private key not found, maybe you forgot to add a ".env" file ?\n\n';
 }
-
-task("changehash", "change the hash of SmardexPair in library for pure getter", changePairHash);
-task(
-  "changehashforv1",
-  "change the hash of SmardexPairV1 in library for pure getter",
-  changePairHashForV1pair,
-).addParam("deployment", "is it for deployment");
-
-task("switchhash", "switch the function to use for pair hash", switchPairHashFunctionCoverage);
-task("generateSwapGasCost", "Generate gas cost for pair by every configuration possible", generateSwapGasCost);
 
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
