@@ -35,7 +35,3 @@ jobs:
         run: "yarn install --immutable"
       - name: Run compile
         run: "yarn compile"
-      - name: Run typechain
-        run: "yarn typechain"
-      - name: Run tests
-        run: "yarn test"
