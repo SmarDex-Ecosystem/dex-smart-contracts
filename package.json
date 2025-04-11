@@ -22,7 +22,7 @@
   "scripts": {
     "clean": "rm -rf dist && rm -rf node_modules && rm -rf .coverage && rm -rf out && rm -rf dependencies && forge clean && npm i && forge soldeer install",
     "exportAbi": "forge build --ast && tsx ./script/exportAbi.ts -g '{*.sol,!(libraries|interfaces)/**/*.sol}' && tsup ./dist/abi/index.ts --format cjs --format esm --dts --sourcemap",
-    "installDeps": "npm i && forge soldeer install",
+    "installDeps": "npm i && forge soldeer install"
   },
   "files": [
     "dist",
