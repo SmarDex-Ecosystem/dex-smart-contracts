@@ -1,0 +1,44 @@
+# ---------------------------------------------------------------------------- #
+#                                Default profile                               #
+# ---------------------------------------------------------------------------- #
+
+[profile.default]
+solc_version = "0.8.17"
+#evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+libs = ["dependencies"]
+invariant = { fail_on_revert = true }
+
+# -------------------------------- Remappings -------------------------------- #
+
+remappings = [
+    "@openzeppelin/contracts/=dependencies/@openzeppelin-contracts-4.9.6/",
+    "forge-std/=dependencies/forge-std-1.9.6/src/",
+]
+
+# ---------------------------------------------------------------------------- #
+#                                    Format                                    #
+# ---------------------------------------------------------------------------- #
+
+[profile.default.fmt]
+line_length = 120
+bracket_spacing = true
+wrap_comments = true
+number_underscore = "thousands"
+sort_inputs = true
+
+
+# ---------------------------------------------------------------------------- #
+#                                    Soldeer                                   #
+# ---------------------------------------------------------------------------- #
+
+[soldeer]
+remappings_generate = true
+remappings_location = "config"
+remappings_version = true
+
+[dependencies]
+"@openzeppelin-contracts" = "4.9"
+forge-std = "1"
+

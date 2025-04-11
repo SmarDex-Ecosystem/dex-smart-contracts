@@ -2,9 +2,8 @@
 pragma solidity 0.8.17;
 
 // interfaces
-import "@openzeppelin/contracts/interfaces/IERC20.sol";
 import "./ISmardexFactory.sol";
-import "./ISmardexPair.sol";
+import "../../../periphery/interfaces/ISmardexRouterV1.sol";
 import "../../../core/v2/interfaces/ISmardexSwapCallback.sol";
 
 interface IAutoSwapper is ISmardexSwapCallback {
