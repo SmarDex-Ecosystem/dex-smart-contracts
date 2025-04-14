@@ -34,7 +34,7 @@ jobs:
           node-version: 20
 
       - name: Install the dependencies
-        run: npm ci && forge soldeer install
+        run: forge soldeer install
 
       - name: Run compile
         run: forge compile
