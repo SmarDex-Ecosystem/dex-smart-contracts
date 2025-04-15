@@ -57,7 +57,6 @@ typings/
 
 # Optional npm cache directory
 .npm
-package-lock.json
 
 # Optional eslint cache
 .eslintcache
@@ -137,3 +136,7 @@ script/*.ps1
 # dev shell cache
 .devenv
 .direnv
+
+# foundry
+dependencies
+out

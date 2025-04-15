@@ -4,9 +4,6 @@ pragma solidity =0.8.17;
 // libraries
 import "@openzeppelin/contracts/utils/math/Math.sol";
 
-// interfaces
-import "../interfaces/ISmardexPair.sol";
-
 library SmardexLibrary {
     /// @notice amount of fees sent to LP, not in percent but in FEES_BASE
     uint256 public constant FEES_LP = 5;

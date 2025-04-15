@@ -6,75 +6,39 @@
   "keywords": [
     "SmarDex"
   ],
-  "homepage": "https://github.com/SmarDex-Dev/smart-contracts#readme",
+  "homepage": "https://github.com/SmarDex-Ecosystem/dex-smart-contracts#readme",
   "bugs": {
-    "url": "https://github.com/SmarDex-Dev/smart-contracts/issues"
+    "url": "https://github.com/SmarDex-Ecosystem/dex-smart-contracts/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SmarDex-Dev/smart-contracts.git"
+    "url": "git+https://github.com/SmarDex-Ecosystem/dex-smart-contracts.git"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   },
   "license": "BUSL-1.1",
-  "author": "",
-  "main": ".solcover.js",
+  "main": "dist/index.js",
   "scripts": {
-    "clean": "shx rm -rf artifacts && shx rm -rf cache && shx rm -rf typechain",
-    "compile": "hardhat compile",
-    "deploy": "hardhat deploy",
-    "postinstall": "husky install && shx chmod ug+x .husky/*",
-    "lint": "yarn lint:sol && yarn lint:ts && yarn prettier:check",
-    "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 \"contracts/**/*.sol\"",
-    "lint:ts": "eslint --config ./.eslintrc.yaml --ignore-path ./.eslintignore --ext .js,.ts .",
-    "precommit": "lint-staged",
-    "prettier": "prettier --config ./.prettierrc.yaml --write \"**/*.{js,json,md,sol,ts}\"",
-    "prettier:check": "prettier --check --config ./.prettierrc.yaml \"**/*.{js,json,md,sol,ts}\"",
-    "run": "hardhat run"
+    "clean": "rm -rf dist && rm -rf node_modules && rm -rf .coverage && rm -rf out && rm -rf dependencies && forge clean && npm i && forge soldeer install",
+    "exportAbi": "forge build --ast && tsx ./script/exportAbi.ts -g '{*.sol,!(libraries|interfaces)/**/*.sol}' && tsup ./dist/abi/index.ts --format cjs --format esm --dts --sourcemap",
+    "installDeps": "npm i && forge soldeer install"
   },
+  "files": [
+    "dist",
+    "src/**/*",
+    "foundry.toml",
+    "soldeer.lock"
+  ],
   "devDependencies": {
-    "@ethersproject/abi": "^5.7.0",
-    "@ethersproject/abstract-signer": "^5.4.1",
-    "@ethersproject/providers": "^5.7.2",
-    "@nomicfoundation/hardhat-chai-matchers": "^1.0.5",
-    "@nomicfoundation/hardhat-network-helpers": "^1.0.7",
-    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
-    "@nomiclabs/hardhat-ethers": "^2.2.1",
-    "@nomiclabs/hardhat-etherscan": "^3.1.3",
-    "@openzeppelin/contracts": "^4.9.0",
-    "@stdlib/utils-copy": "^0.0.7",
-    "@typechain/ethers-v5": "^10.2.0",
-    "@typechain/hardhat": "^6.1.5",
-    "@types/chai": "^4.3.4",
-    "@types/inquirer": "^9.0.3",
-    "@types/mocha": "^10.0.0",
-    "@types/node": "^18.11.9",
-    "@typescript-eslint/eslint-plugin": "^5.44.0",
-    "@typescript-eslint/parser": "^5.44.0",
-    "axios": "^1.4.0",
-    "chai": "^4.3.7",
-    "deep-copy-ts": "^0.5.4",
-    "dotenv": "^16.0.1",
-    "eslint": "^8.28.0",
-    "eslint-config-prettier": "^8.3.0",
-    "ethers": "^5.7.2",
-    "hardhat": "^2.12.2",
-    "hardhat-change-network": "^0.0.7",
-    "hardhat-deploy": "^0.10.5",
-    "hardhat-deploy-ethers": "^0.3.0-beta.13",
-    "hardhat-gas-reporter": "^1.0.9",
-    "hardhat-tracer": "^2.3.0",
-    "husky": "^7.0.4",
-    "inquirer": "^8.0.0",
-    "lint-staged": "^13.0.3",
-    "mocha": "^10.2.0",
-    "ora-classic": "^5.4.2",
-    "prettier": "^2.5.0",
-    "prettier-plugin-solidity": "^1.0.0",
-    "shx": "^0.3.4",
-    "solhint": "^3.3.6",
-    "solhint-plugin-prettier": "0.0.5",
-    "solidity-coverage": "^0.8.2",
-    "ts-node": "^10.4.0",
-    "typechain": "^8.1.1",
-    "typescript": "^4.9.4"
+    "@biomejs/biome": "^1.8.3",
+    "@types/node": "20.17.10",
+    "abitype": "^1.0.5",
+    "commander": "^12.1.0",
+    "glob": "^11.0.0",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "viem": "^2.21.55"
   }
 }

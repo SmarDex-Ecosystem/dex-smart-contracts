@@ -1,32 +1,35 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    utils.url = "github:numtide/flake-utils";
-    devenv = {
-      url = "github:cachix/devenv";
+    flake-utils.url = "github:numtide/flake-utils";
+    foundry = {
+      url = "github:shazow/foundry.nix/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, utils, devenv, ... } @ inputs:
-    utils.lib.eachDefaultSystem (system:
+  outputs = { self, nixpkgs, flake-utils, foundry }:
+    flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = nixpkgs.outputs.legacyPackages.${system};
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ foundry.overlay ];
+        };
+        stdenv = if pkgs.stdenv.isLinux then pkgs.stdenvAdapters.useMoldLinker pkgs.stdenv else pkgs.stdenv;
       in
       {
-        devShell = devenv.lib.mkShell {
-          inherit inputs pkgs;
-          modules = [
-            ({ pkgs, ... }: {
-              packages = with pkgs; [ yarn ];
-              dotenv.enable = true;
-              languages.javascript = {
-                enable = true;
-                package = pkgs.nodejs_18;
-              };
-              languages.typescript.enable = true;
-            })
+        devShells.default = pkgs.mkShell.override { inherit stdenv; } {
+          packages = with pkgs; [
+            foundry-bin
+            nodejs_20
+            typescript
           ];
+
+          shellHook = ''
+            set -a; source .env; set +a
+            npm i
+            forge soldeer install
+          '';
         };
       });
 }

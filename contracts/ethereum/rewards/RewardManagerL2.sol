@@ -8,7 +8,6 @@ import "./FarmingRange.sol";
 import "../core/v2/libraries/TransferHelper.sol";
 
 // interfaces
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./interfaces/IRewardManagerL2.sol";
 
 /**

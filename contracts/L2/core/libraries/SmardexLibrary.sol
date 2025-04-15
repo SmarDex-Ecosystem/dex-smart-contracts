@@ -4,9 +4,6 @@ pragma solidity =0.8.17;
 // libraries
 import "@openzeppelin/contracts/utils/math/Math.sol";
 
-// interfaces
-import "../interfaces/ISmardexPair.sol";
-
 library SmardexLibrary {
     /// @notice base of the FEES
     uint256 public constant FEES_BASE = 1_000_000;
