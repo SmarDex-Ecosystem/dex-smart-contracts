@@ -3,7 +3,6 @@ pragma solidity =0.8.17;
 
 // libraries
 import "./PoolAddress.sol";
-import "../../core/libraries/SmardexLibrary.sol";
 
 // interfaces
 import "../../core/interfaces/ISmardexPair.sol";

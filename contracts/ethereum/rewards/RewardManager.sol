@@ -9,7 +9,6 @@ import "./Staking.sol";
 import "../core/v2/libraries/TransferHelper.sol";
 
 // interfaces
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./interfaces/IRewardManager.sol";
 
 /**

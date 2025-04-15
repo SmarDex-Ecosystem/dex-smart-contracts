@@ -4,9 +4,6 @@ pragma solidity =0.8.17;
 // libraries
 import "./PoolHelpers.sol";
 
-// interfaces
-import "../../core/v2/interfaces/ISmardexFactory.sol";
-
 library PoolAddress {
     /**
      * @notice Deterministically computes the pool address given the factory and PoolKey. Also check the whitelist first.
