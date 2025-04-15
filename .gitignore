@@ -136,3 +136,7 @@ script/*.ps1
 # dev shell cache
 .devenv
 .direnv
+
+# foundry
+dependencies
+out
