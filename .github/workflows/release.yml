@@ -8,6 +8,7 @@ permissions:
   id-token: write # The OIDC ID token is used for authentication with JSR
   contents: write # Required for actions/checkout and push commit
   pull-requests: write # Required for creating pull-requests
+  issues: write
 
 jobs:
   release-please:
