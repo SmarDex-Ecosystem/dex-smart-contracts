@@ -1,0 +1,69 @@
+on:
+  push:
+    branches:
+      - main
+name: Release Workflow
+
+permissions:
+  id-token: write # The OIDC ID token is used for authentication with JSR
+  contents: write # Required for actions/checkout and push commit
+  pull-requests: write # Required for creating pull-requests
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - uses: actions/checkout@v4
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Install Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org/'
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Install dependencies
+        run: npm ci && forge soldeer install
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Export ABI
+        run: npm run exportAbi
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Publish to NPM
+        if: ${{ steps.release.outputs.release_created }}
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish to JSR.io
+        if: ${{ steps.release.outputs.release_created }}
+        run: npx jsr publish
+
+      - name: Publish to soldeer.xyz
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          SOLDEER_EMAIL: ${{ secrets.SOLDEER_EMAIL }}
+          SOLDEER_PASSWORD: ${{ secrets.SOLDEER_PASSWORD }}
+        run: |
+          forge soldeer login --email "$SOLDEER_EMAIL" --password "$SOLDEER_PASSWORD"
+          VERSION=$(npm pkg get version --workspaces=false | tr -d \")
+          forge soldeer push @smardex-dex-contracts~$VERSION
