@@ -1,10 +1,9 @@
 {
-  "name": "SmarDex",
+  "name": "@smardex/dex-contracts",
   "version": "0.0.1",
-  "private": true,
   "description": "Core smart contracts of Smardex",
   "keywords": [
-    "SmarDex"
+    "Smardex"
   ],
   "homepage": "https://github.com/SmarDex-Ecosystem/dex-smart-contracts#readme",
   "bugs": {
