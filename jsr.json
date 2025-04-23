@@ -1,6 +1,6 @@
 {
 	"name": "@smardex/dex-contracts",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"exports": "./dist/abi/index.ts",
 	"publish": {
 		"include": [
