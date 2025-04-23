@@ -4,7 +4,7 @@
 	"exports": "./dist/abi/index.ts",
 	"publish": {
 		"include": [
-			"src/**/*",
+			"contracts/**/*",
 			"foundry.toml",
 			"soldeer.lock",
 			"dist/abi/*",
