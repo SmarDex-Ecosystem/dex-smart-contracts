@@ -7,5 +7,7 @@
 !contracts/*/*/*
 !contracts/*/*/*/
 !contracts/*/*/*/*
+!contracts/*/*/*/*/
+!contracts/*/*/*/*/*
 !foundry.toml
 !soldeer.lock
