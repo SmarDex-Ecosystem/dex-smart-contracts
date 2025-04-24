@@ -22,23 +22,32 @@ See the link to the technical paper or visit the Smardex Developer docs
 
 ### Installation
 
-Install dependencies:
+### Foundry
 
-`yarn install`
+To install Foundry, run the following commands in your terminal:
+
+```bash
+curl -L https://foundry.paradigm.xyz | bash
+source ~/.bashrc
+foundryup
+```
+
+### Dependencies
+
+To install existing dependencies, run the following commands:
+
+```bash
+forge soldeer install
+npm install
+```
 
 ### Compile
 
-`yarn compile`
+`forge compile`
 
-### Prettier
+## Foundry Documentation
 
-Run linter (required before each commit):
-
-`yarn prettier`
-
-Check code is properly linted:
-
-`yarn prettier:check`
+For comprehensive details on Foundry, refer to the [Foundry book](https://book.getfoundry.sh/).
 
 ## Contributors
 
