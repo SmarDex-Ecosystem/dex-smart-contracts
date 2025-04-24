@@ -20,7 +20,7 @@ See the link to the technical paper or visit the Smardex Developer docs
 
 ## Getting Started
 
-### Installation
+## Installation
 
 ### Foundry
 
@@ -41,7 +41,21 @@ forge soldeer install
 npm install
 ```
 
-### Compile
+
+### Nix
+
+If using [`nix`](https://nixos.org/), the repository provides a development shell in the form of a flake.
+
+The devshell can be activated with the `nix develop` command.
+
+To automatically activate the dev shell when opening the workspace, install [`direnv`](https://direnv.net/)
+(available on nixpkgs) and run the following command inside this folder:
+
+```bash
+direnv allow
+```
+
+## Compile
 
 `forge compile`
 
