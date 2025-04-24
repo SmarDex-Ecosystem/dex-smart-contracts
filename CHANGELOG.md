@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/SmarDex-Ecosystem/dex-smart-contracts/compare/v1.0.0...v1.0.1) (2025-04-24)
+
+
+### Bug Fixes
+
+* add Nix in README.md ([#12](https://github.com/SmarDex-Ecosystem/dex-smart-contracts/issues/12)) ([e979644](https://github.com/SmarDex-Ecosystem/dex-smart-contracts/commit/e979644efcdd3e0533bde90b80231ab327b1a257))
+
 ## [1.0.0](https://github.com/SmarDex-Ecosystem/dex-smart-contracts/compare/v0.0.1...v1.0.0) (2025-04-23)
 
 
