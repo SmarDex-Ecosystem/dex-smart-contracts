@@ -15,10 +15,9 @@
           inherit system;
           overlays = [ foundry.overlay ];
         };
-        stdenv = if pkgs.stdenv.isLinux then pkgs.stdenvAdapters.useMoldLinker pkgs.stdenv else pkgs.stdenv;
       in
       {
-        devShells.default = pkgs.mkShell.override { inherit stdenv; } {
+        devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             foundry-bin
             nodejs_20
