@@ -25,6 +25,7 @@
   },
   "files": [
     "dist",
+    "docs",
     "contracts/**/*",
     "foundry.toml",
     "soldeer.lock",

@@ -1,14 +1,15 @@
 {
-	"name": "@smardex/dex-contracts",
-	"version": "1.0.1",
-	"exports": "./dist/abi/index.ts",
-	"publish": {
-		"include": [
-			"contracts/**/*",
-			"foundry.toml",
-			"soldeer.lock",
-			"dist/abi/*",
-			"README.md"
-		]
-	}
+  "name": "@smardex/dex-contracts",
+  "version": "1.0.1",
+  "exports": "./dist/abi/index.ts",
+  "publish": {
+    "include": [
+      "contracts/**/*",
+      "foundry.toml",
+      "soldeer.lock",
+      "dist/abi/*",
+      "README.md",
+      "docs"
+    ]
+  }
 }
