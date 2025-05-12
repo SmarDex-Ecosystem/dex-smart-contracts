@@ -140,3 +140,6 @@ script/*.ps1
 # foundry
 dependencies
 out
+
+# docs
+docs/
